@@ -11,32 +11,40 @@ new Vue ({
 			'https://cdn.mos.cms.futurecdn.net/FUE7XiFApEqWZQ85wYcAfM.jpg',
 			'https://static.photocdn.pt/images/articles/2017/04/28/iStock-546424192.jpg'
 		],
-
-		first: 'false',
-		last: 'false'
 	},
 
 
 	methods: {
 		nextImg: function () {
 			let currentIdx = this.sliderImgs.indexOf(this.currentImg);
-			console.log(currentIdx)
+			const navbar = document.getElementsByClassName('nav')[0];
+			const dotElements = navbar.children;
+
 
 			if (currentIdx === this.sliderImgs.length - 1) {
 				this.currentImg = this.sliderImgs[0];
+				dotElements[dotElements.length - 1].style.color = 'white';
+				dotElements[0].style.color = 'blue';
 			} else {
 				this.currentImg = this.sliderImgs[currentIdx + 1];
+				dotElements[currentIdx].style.color = 'white';
+				dotElements[currentIdx + 1].style.color = 'blue';
 			}
 		},
 
 		prevImg: function () {
 			let currentIdx = this.sliderImgs.indexOf(this.currentImg);
-			console.log(currentIdx)
+			const navbar = document.getElementsByClassName('nav')[0];
+			const dotElements = navbar.children;
 
 			if (currentIdx === 0) {
 				this.currentImg = this.sliderImgs[this.sliderImgs.length - 1];
+				dotElements[0].style.color = 'white';
+				dotElements[dotElements.length - 1].style.color = 'blue';
 			} else {
 				this.currentImg = this.sliderImgs[currentIdx - 1];
+				dotElements[currentIdx].style.color = 'white';
+				dotElements[currentIdx - 1].style.color = 'blue';
 			}
 		}
 	}
