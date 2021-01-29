@@ -21,7 +21,7 @@
                     <i class="fas fa-angle-right"></i>
                 </div>
                 <div class="nav">
-                  <i class="fas fa-circle" v-for="i in sliderImgs" v-bind:style="{color: colorDots()}"></i>
+                  <i class="fas fa-circle" v-for="(image, index) in sliderImgs" v-bind:style="{color: (index === currentImg) ? 'blue' : 'white'}" @click="selectImg(index)"></i>
                 </div>
             </div>
         </div>

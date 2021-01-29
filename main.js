@@ -1,7 +1,9 @@
 Vue.config.devtools = true;
 
 new Vue ({
+
 	el: '.slider-wrapper',
+
 	data: {
 		sliderImgs: [
 			'https://images.pexels.com/photos/371633/pexels-photo-371633.jpeg?cs=srgb&dl=clouds-country-daylight-371633.jpg&fm=jpg',
@@ -11,10 +13,12 @@ new Vue ({
 		],
 
 		currentImg: 0
+
 	},
 
 
 	methods: {
+
 		nextImg: function () {
 			if (this.currentImg === this.sliderImgs.length - 1) {
 				this.currentImg = 0;
@@ -31,17 +35,8 @@ new Vue ({
 			}
 		},
 
-		colorDots: function () {
-			var i = 0;
-			while (i < this.sliderImgs.length) {
-				console.log(i)
-				if (i === this.currentImg) {
-					return 'blue';
-				} else {
-					return 'white';
-				}
-				i++;
-			}
+		selectImg: function (clickedIndex) {
+			this.currentImg = clickedIndex;
 		}
 
 	}
